@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>תעלומות בלתי פתורות</title>
+    <link rel="icon" href="images/ReversedQuestion.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="styles/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server" />
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <h1 class ="animate__animated animate__fadeInRight"><a class="agam" href="Main.aspx">תעלומות בלתי פתורות&#11822;</a></h1>
+        <div class ="lblDate"><%:DateTime.Now.Day %>/<%:DateTime.Now.Month %>/<%:DateTime.Now.Year %></div>
+        <asp:Label ID="lblHello" runat="server" CssClass="lblHello"/>
+        
+        <div class ="homeBtn" style="height:1.2em;"><a href="../Default.aspx">&#8962;</a></div>
+        <div style="margin-right:-4.5em;">
+            <asp:HyperLink ID="AdminLink" runat="server" CssClass="homeBtn" NavigateUrl="~/AdminOnly.aspx" Visible="false">👑</asp:HyperLink>
+         </div>
+        <nav>
+            <ul>
+                <li><a href ="../Main.aspx">ראשי</a></li>
+                <li><a href ="../BiggestUnsolved.aspx">התעלומות הגדולות</a></li>
+                <li id="cellJoin">
+                    <asp:HyperLink runat="server" ID ="linkJoin" Text ="הרשמה" NavigateUrl="~/Join.aspx" />
+                    <asp:HyperLink runat="server" ID="linkMysteries" Text ="תעלומות גולשים" NavigateUrl="~/Mysteries.aspx"></asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink runat="server" ID ="linkLogin" Text ="התחברות" NavigateUrl="~/Login.aspx" />
+                    <asp:LinkButton ID ="linkLogout" runat="server" Text="התנתקות" Visible="false" OnClick="linkLogout_Click"/>
+                </li>
+                <li>
+                    <a href ="About.aspx">אודות</a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+    <div class ="animate__animated animate__fadeIn">
+        <asp:ContentPlaceHolder id="mainContent" runat="server" />
+    </div>
+
+
+
+    
+    
+        
+    </form>
+    <!--<div class ="btmln" lang ="en" dir="ltr">
+        &copy Created by 2021 @Jonathanheimann_
+    </div>-->
+</body>
+</html>
